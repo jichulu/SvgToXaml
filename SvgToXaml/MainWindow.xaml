@@ -7,11 +7,11 @@
         xmlns:viewModels="clr-namespace:SvgToXaml.ViewModels"
         xmlns:wrapPanel="clr-namespace:SvgToXaml.WrapPanel"
         mc:Ignorable="d" 
-        Title="SvgToXaml   © 2015 Bernd Klaiber" Height="350" Width="525"
+        Title="SvgToXaml   © 2015 Bernd Klaiber" Height="450" Width="700"
         AllowDrop="True"
         Drop="MainWindow_OnDrop"
         Icon="icon.ico"
-        d:DataContext="{x:Static viewModels:SvgImagesViewModel.DesignInstance}">
+        d:DataContext="{x:Static viewModels:SvgImagesViewModel.DesignInstance}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DrawingImage x:Key="SaveDrawingImage">
             <DrawingImage.Drawing>
@@ -33,6 +33,7 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Button DockPanel.Dock="Right" Width="20" Margin="1,3" Command="{Binding InfoCommand}" TabIndex="2" ToolTip="Info">i</Button>
+            <Button DockPanel.Dock="Right" Width="20" Margin="1,3">B</Button>
             <Slider x:Name="Slider" Orientation="Horizontal" DockPanel.Dock="Right" Minimum="16" Maximum="500" Value="96" 
                         LargeChange="8" SmallChange="2" Width="100" VerticalAlignment="Center"/>
             <Button DockPanel.Dock="Right" Width="20" Margin="1,3" Command="{Binding ExportDirCommand}" TabIndex="2" ToolTip="Export all Svgs to a Xaml">
@@ -48,11 +49,11 @@
                 <RowDefinition Height="212*"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <ListBox Grid.Row="0" 
+            <ListBox x:Name="ContentView" Grid.Row="0" 
                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                      SelectionMode="Single"
                      ItemsSource="{Binding Images}" 
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="LightGray">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <!--<WrapPanel Orientation="Horizontal"/>-->

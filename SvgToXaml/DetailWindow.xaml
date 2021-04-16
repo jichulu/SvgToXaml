@@ -6,8 +6,8 @@
         xmlns:viewModels="clr-namespace:SvgToXaml.ViewModels"
         xmlns:textViewer="clr-namespace:SvgToXaml.TextViewer"
         mc:Ignorable="d" 
-        Title="{Binding Filename}" Height="375" Width="300"
-        d:DataContext="{x:Static viewModels:SvgImageViewModel.DesignInstance}">
+        Title="{Binding Filename}" Height="375" Width="500"
+        d:DataContext="{x:Static viewModels:SvgImageViewModel.DesignInstance}" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl TabStripPlacement="Bottom">
             <TabItem Header="View Image">
@@ -16,7 +16,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="0" BorderThickness="1" BorderBrush="#FF00008A" Margin="2">
+                    <Border Grid.Row="0" BorderThickness="1" BorderBrush="#FF00008A" Margin="2" Background="LightGray">
                         <Image x:Name="Image" Source="{Binding PreviewSource}" Stretch="Uniform">
                             <Image.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding OpenDetailCommand}" />
